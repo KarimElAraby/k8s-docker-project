@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-test
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: a-nginx
+  template:
+    metadata:
+      labels:
+        app: a-nginx
+    spec:
+      containers:
+      - name: a-nginx
+        image: karimaraby/araby-nginx:1.1
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: a-nginx-config-volume
+          mountPath: /etc/config
+          subPath: nginx.conf
+        - name: nginx-data
+          mountPath: "/var/log/nginx"
+        env:
+        - name: DB_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: secert-test
+              key: username
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: secert-test
+              key: password
+      volumes:
+      - name: a-nginx-config-volume
+        configMap:
+          name: a-nginx-config
+      - name: nginx-data
+        persistentVolumeClaim:
+          claimName: claim-test
