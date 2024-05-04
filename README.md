@@ -1,4 +1,4 @@
-# k8s-docker-small-project-using-Nginx
+# k8s-docker-project-using-Nginx
 This project involves setting up a KinD (Kubernetes in Docker) cluster, creating Docker containers, deploying applications to the cluster using Kubernetes manifests, and exposing services externally using NGINX Ingress.
 
 ## Project Steps
