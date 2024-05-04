@@ -37,40 +37,58 @@ This project involves setting up a KinD (Kubernetes in Docker) cluster, creating
 
 #### ConfigMap and Secret
 
- Create ConfigMap and Secret YAML files with sample data, specifying the key-value pairs or secrets.
- Apply the ConfigMap and Secret to the KinD cluster using the kubectl apply -f configmap.yaml and kubectl apply -f secret.yaml commands.
- Use the ConfigMap and Secret in a Deployment YAML file by referencing them in the environment variables or volume mounts.
- Deploy the Deployment to the cluster using the kubectl apply -f deployment.yaml command.
+ 1- Create ConfigMap and Secret YAML files with sample data, specifying the key-value pairs or secrets.
+ 
+ 2- Apply the ConfigMap and Secret to the KinD cluster using the kubectl apply -f configmap.yaml and kubectl apply -f secret.yaml commands.
+ 
+ 3-Use the ConfigMap and Secret in a Deployment YAML file by referencing them in the environment variables or volume mounts.
+
+ ![Screenshot from 2024-05-04 04-01-00](https://github.com/KarimElAraby/k8s-docker-small-project/assets/137705973/f3508dcc-3c45-4791-98b8-1e7fdccc803e)
+ ![Screenshot from 2024-05-04 04-01-11](https://github.com/KarimElAraby/k8s-docker-small-project/assets/137705973/1c76bd24-d520-4575-8b42-6600ed1fa3c8)
 
  #### PersistentVolume and PersistentVolumeClaim
 
- Create PersistentVolume and PersistentVolumeClaim YAML files with sample configurations, specifying the storage class, access mode, and capacity.
- Apply the PersistentVolume and PersistentVolumeClaim to the KinD cluster using the kubectl apply -f pv.yaml and kubectl apply -f pvc.yaml commands.
- Mount the PersistentVolumeClaim to a Deployment by referencing it in the volume mounts section of the deployment YAML file.
- Deploy the Deployment to the cluster using the kubectl apply -f deployment.yaml command and verify the volume is correctly mounted.
+ 1- Create PersistentVolume and PersistentVolumeClaim YAML files with sample configurations, specifying the storage class, access mode, and capacity.
+ 
+ 2- Apply the PersistentVolume and PersistentVolumeClaim to the KinD cluster using the kubectl apply -f pv.yaml and kubectl apply -f pvc.yaml commands.
+ 
+ 3- Mount the PersistentVolumeClaim to a Deployment by referencing it in the volume mounts section of the deployment YAML file.
+
+![Screenshot from 2024-05-04 04-02-21](https://github.com/KarimElAraby/k8s-docker-small-project/assets/137705973/e7ab07fb-bc31-46cc-8f4c-5f204e8c7bf8)
 
 
 #### Deployment
 
- Create a Deployment YAML file for the web application, specifying the desired replicas, image, and other configurations.
- Apply the Deployment to the KinD cluster using the kubectl apply -f deployment.yaml command.
- Verify the Deployment and its Pods by checking their status using the kubectl get deployment and kubectl get pods commands.
+ 1- Create a Deployment YAML file for the web application, specifying the desired replicas, image, and other configurations.
+ 
+ 2- Apply the Deployment to the KinD cluster using the kubectl apply -f deployment.yaml command.
+ 
+ 3- Verify the Deployment and its Pods by checking their status using the kubectl get deployment and kubectl get pods commands.
+
+ ![Screenshot from 2024-05-04 04-02-42](https://github.com/KarimElAraby/k8s-docker-small-project/assets/137705973/e8ce8143-276e-4e50-8819-f799e899aa36)
+
 
 #### Service
 
- Create a Service YAML file to expose the Deployment internally within the cluster, specifying the target port and selector.
- Apply the Service to the KinD cluster using the kubectl apply -f service.yaml command.
- Access the service within the cluster using the cluster IP and the specified target port.
+ 1- Create a Service YAML file to expose the Deployment internally within the cluster, specifying the target port and selector.
+ 
+ 2- Apply the Service to the KinD cluster using the kubectl apply -f service.yaml command.
+ 
+ 3- Access the service within the cluster using the cluster IP and the specified target port.
+ 
+![Screenshot from 2024-05-04 04-03-11](https://github.com/KarimElAraby/k8s-docker-small-project/assets/137705973/6a7daad7-c6fc-4657-a911-85dc4a71ca03)
+
 
 #### Ingress
 
- Install the NGINX Ingress Controller on the KinD cluster using the following command:
-    
- kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+ 1- Install the NGINX Ingress Controller on the KinD cluster using the following command:  
+     kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
 
- Create an Ingress YAML file to expose the service externally, specifying the host, paths, and service backend.
- Apply the Ingress to the KinD cluster using the kubectl apply -f ingress.yaml command.
- Access the service externally using the Ingress endpoint and the specified host.
+ 2- Create an Ingress YAML file to expose the service externally, specifying the host, paths, and service backend.
+ 
+ 3- Apply the Ingress to the KinD cluster using the kubectl apply -f ingress.yaml command.
+ 
+ 4- Access the service externally using the Ingress endpoint and the specified host.
 
 ![Screenshot from 2024-05-02 16-58-21](https://github.com/KarimElAraby/k8s-docker-small-project/assets/137705973/d89100cf-2270-4d20-9387-e2846e3a783c)
 
